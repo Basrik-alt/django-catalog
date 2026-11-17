@@ -1,0 +1,112 @@
+{% extends "catalog/base.html" %}
+
+{% block title %}Главная — Каталог{% endblock %}
+{% block description %}Главная страница учебного каталога товаров{% endblock %}
+
+{% block content %}
+<section class="hero py-5">
+    <div class="container py-4">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <span class="badge rounded-pill text-bg-light text-primary-emphasis mb-3">
+                    <i class="bi bi-stars me-1"></i>Учебный проект
+                </span>
+                <h1 class="display-4 fw-bold mb-3">Добро пожаловать в каталог</h1>
+                <p class="lead text-white-50 mb-4">
+                    Здесь собраны категории товаров, которые можно просматривать и выбирать.
+                    Сайт создан на Django: маршрутизацией и шаблонами управляет приложение
+                    <code class="text-info">catalog</code>.
+                </p>
+                <div class="d-flex flex-column flex-sm-row gap-3">
+                    <a class="btn btn-light btn-lg px-4" href="#categories">
+                        <i class="bi bi-grid me-2"></i>Смотреть категории
+                    </a>
+                    <a class="btn btn-outline-light btn-lg px-4" href="{% url 'catalog:contacts' %}">
+                        <i class="bi bi-envelope me-2"></i>Связаться с нами
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <div class="hero-icon mx-auto">
+                    <i class="bi bi-bag-heart"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="categories" class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Категории каталога</h2>
+        <p class="text-muted mb-0">Выберите подходящий раздел, чтобы посмотреть товары</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <article class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="category-icon bg-primary-subtle text-primary mb-3">
+                        <i class="bi bi-laptop"></i>
+                    </div>
+                    <h3 class="h5 card-title">Электроника</h3>
+                    <p class="card-text text-muted mb-0">
+                        Ноутбуки, смартфоны и аксессуары для работы и учёбы.
+                    </p>
+                </div>
+            </article>
+        </div>
+        <div class="col">
+            <article class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="category-icon bg-success-subtle text-success mb-3">
+                        <i class="bi bi-house-door"></i>
+                    </div>
+                    <h3 class="h5 card-title">Дом и уют</h3>
+                    <p class="card-text text-muted mb-0">
+                        Товары для дома, декора и комфортного рабочего места.
+                    </p>
+                </div>
+            </article>
+        </div>
+        <div class="col">
+            <article class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="category-icon bg-warning-subtle text-warning mb-3">
+                        <i class="bi bi-book"></i>
+                    </div>
+                    <h3 class="h5 card-title">Книги</h3>
+                    <p class="card-text text-muted mb-0">
+                        Учебная литература, художественные книги и путеводители.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="container pb-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="feature-box h-100 p-4 rounded-3">
+                <i class="bi bi-shield-check fs-3 text-primary"></i>
+                <h3 class="h6 mt-3 mb-2">Проверенные товары</h3>
+                <p class="text-muted small mb-0">В каталог попадают только качественные позиции.</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="feature-box h-100 p-4 rounded-3">
+                <i class="bi bi-truck fs-3 text-primary"></i>
+                <h3 class="h6 mt-3 mb-2">Быстрая доставка</h3>
+                <p class="text-muted small mb-0">Доставляем заказы по всей России.</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="feature-box h-100 p-4 rounded-3">
+                <i class="bi bi-headset fs-3 text-primary"></i>
+                <h3 class="h6 mt-3 mb-2">Поддержка</h3>
+                <p class="text-muted small mb-0">Ответим на вопросы и поможем с выбором.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
