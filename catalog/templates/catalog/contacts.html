@@ -1,0 +1,97 @@
+{% extends "catalog/base.html" %}
+
+{% block title %}Контакты — Каталог{% endblock %}
+{% block description %}Контактная информация учебного каталога{% endblock %}
+
+{% block content %}
+<section class="page-header py-5">
+    <div class="container py-3 text-center">
+        <h1 class="display-5 fw-bold mb-3">Контакты</h1>
+        <p class="lead text-muted mb-0">
+            Будем рады ответить на вопросы о товарах, заказах и доставке.
+        </p>
+    </div>
+</section>
+
+<section class="container pb-5">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <article class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4 d-flex gap-3">
+                    <div class="contact-icon bg-primary-subtle text-primary">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <div>
+                        <h2 class="h5 mb-2">Адрес</h2>
+                        <p class="text-muted mb-0">
+                            г. Москва, ул. Примерная, д. 10, офис 25
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="col">
+            <article class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4 d-flex gap-3">
+                    <div class="contact-icon bg-success-subtle text-success">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+                    <div>
+                        <h2 class="h5 mb-2">Телефон</h2>
+                        <p class="text-muted mb-0">
+                            <a class="link-dark text-decoration-none" href="tel:+78001234567">+7 (800) 123-45-67</a>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="col">
+            <article class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4 d-flex gap-3">
+                    <div class="contact-icon bg-warning-subtle text-warning">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <div>
+                        <h2 class="h5 mb-2">Электронная почта</h2>
+                        <p class="text-muted mb-0">
+                            <a class="link-dark text-decoration-none" href="mailto:info@example.com">info@example.com</a>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="col">
+            <article class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4 d-flex gap-3">
+                    <div class="contact-icon bg-info-subtle text-info">
+                        <i class="bi bi-clock"></i>
+                    </div>
+                    <div>
+                        <h2 class="h5 mb-2">Режим работы</h2>
+                        <p class="text-muted mb-0">
+                            Пн–Пт: 09:00–18:00<br>
+                            Сб–Вс: выходной
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="contact-cta rounded-4 p-4 p-lg-5 mt-5">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <h2 class="h3 fw-bold mb-2">Остались вопросы?</h2>
+                <p class="text-muted mb-0">
+                    Напишите нам на почту — ответим в течение одного рабочего дня.
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a class="btn btn-primary btn-lg" href="mailto:info@example.com">
+                    <i class="bi bi-send me-2"></i>Написать нам
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

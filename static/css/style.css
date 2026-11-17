@@ -1,0 +1,101 @@
+:root {
+    --catalog-primary: #435ebe;
+    --catalog-dark: #1f2937;
+}
+
+body {
+    background-color: #f6f8fc;
+    color: #212529;
+}
+
+.navbar-brand {
+    letter-spacing: 0.02em;
+}
+
+.navbar .nav-link {
+    border-radius: 0.5rem;
+    padding-inline: 0.9rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.hero {
+    background: linear-gradient(135deg, #1f2937 0%, #334155 55%, var(--catalog-primary) 100%);
+    color: #fff;
+}
+
+.hero code {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.35rem;
+}
+
+.hero-icon {
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    display: flex;
+    font-size: 7rem;
+    height: 16rem;
+    justify-content: center;
+    width: 16rem;
+}
+
+.category-icon,
+.contact-icon {
+    align-items: center;
+    border-radius: 0.85rem;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    height: 3rem;
+    justify-content: center;
+    width: 3rem;
+}
+
+.card {
+    border-radius: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0.75rem 1.75rem rgba(31, 41, 55, 0.12) !important;
+    transform: translateY(-3px);
+}
+
+.feature-box {
+    background-color: #fff;
+    border: 1px solid #e5e9f2;
+}
+
+.page-header {
+    background: linear-gradient(180deg, #eef2ff 0%, #f6f8fc 100%);
+}
+
+.contact-cta {
+    background-color: #fff;
+    border: 1px solid #e5e9f2;
+    box-shadow: 0 0.5rem 1.5rem rgba(31, 41, 55, 0.06);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--catalog-primary);
+    --bs-btn-border-color: var(--catalog-primary);
+    --bs-btn-hover-bg: #344ba3;
+    --bs-btn-hover-border-color: #344ba3;
+    --bs-btn-active-bg: #2d4190;
+    --bs-btn-active-border-color: #2d4190;
+}
+
+@media (max-width: 991.98px) {
+    .hero-icon {
+        font-size: 5rem;
+        height: 11rem;
+        width: 11rem;
+    }
+}
