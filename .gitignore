@@ -1,0 +1,37 @@
+# PyCharm / JetBrains
+.idea/
+*.iml
+
+# Виртуальные окружения
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+
+# Django
+*.log
+db.sqlite3
+*.sqlite
+*.sqlite3
+/staticfiles/
+/media/
+local_settings.py
+
+# Переменные окружения
+.env
+.env.*
+!.env.example
+
+# ОС
+.DS_Store
+Thumbs.db
