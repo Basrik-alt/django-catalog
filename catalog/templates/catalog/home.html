@@ -13,16 +13,15 @@
                 </span>
                 <h1 class="display-4 fw-bold mb-3">Добро пожаловать в каталог</h1>
                 <p class="lead text-white-50 mb-4">
-                    Здесь собраны категории товаров, которые можно просматривать и выбирать.
-                    Сайт создан на Django: маршрутизацией и шаблонами управляет приложение
-                    <code class="text-info">catalog</code>.
+                    Здесь собраны товары из базы данных проекта. Откройте карточку,
+                    чтобы посмотреть описание, цену и изображение.
                 </p>
                 <div class="d-flex flex-column flex-sm-row gap-3">
-                    <a class="btn btn-light btn-lg px-4" href="#categories">
-                        <i class="bi bi-grid me-2"></i>Смотреть категории
+                    <a class="btn btn-light btn-lg px-4" href="#products">
+                        <i class="bi bi-grid me-2"></i>Смотреть товары
                     </a>
-                    <a class="btn btn-outline-light btn-lg px-4" href="{% url 'catalog:contacts' %}">
-                        <i class="bi bi-envelope me-2"></i>Связаться с нами
+                    <a class="btn btn-outline-light btn-lg px-4" href="{% url 'catalog:product_create' %}">
+                        <i class="bi bi-plus-circle me-2"></i>Добавить товар
                     </a>
                 </div>
             </div>
@@ -35,53 +34,30 @@
     </div>
 </section>
 
-<section id="categories" class="container py-5">
+<section id="products" class="container py-5">
     <div class="text-center mb-5">
-        <h2 class="fw-bold">Категории каталога</h2>
-        <p class="text-muted mb-0">Выберите подходящий раздел, чтобы посмотреть товары</p>
+        <h2 class="fw-bold">Товары каталога</h2>
+        <p class="text-muted mb-0">Все позиции, доступные для заказа</p>
     </div>
 
+    {% if products %}
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for product in products %}
         <div class="col">
-            <article class="card h-100 border-0 shadow-sm">
-                <div class="card-body p-4">
-                    <div class="category-icon bg-primary-subtle text-primary mb-3">
-                        <i class="bi bi-laptop"></i>
-                    </div>
-                    <h3 class="h5 card-title">Электроника</h3>
-                    <p class="card-text text-muted mb-0">
-                        Ноутбуки, смартфоны и аксессуары для работы и учёбы.
-                    </p>
-                </div>
-            </article>
+            {% include "catalog/includes/product_card.html" %}
         </div>
-        <div class="col">
-            <article class="card h-100 border-0 shadow-sm">
-                <div class="card-body p-4">
-                    <div class="category-icon bg-success-subtle text-success mb-3">
-                        <i class="bi bi-house-door"></i>
-                    </div>
-                    <h3 class="h5 card-title">Дом и уют</h3>
-                    <p class="card-text text-muted mb-0">
-                        Товары для дома, декора и комфортного рабочего места.
-                    </p>
-                </div>
-            </article>
-        </div>
-        <div class="col">
-            <article class="card h-100 border-0 shadow-sm">
-                <div class="card-body p-4">
-                    <div class="category-icon bg-warning-subtle text-warning mb-3">
-                        <i class="bi bi-book"></i>
-                    </div>
-                    <h3 class="h5 card-title">Книги</h3>
-                    <p class="card-text text-muted mb-0">
-                        Учебная литература, художественные книги и путеводители.
-                    </p>
-                </div>
-            </article>
-        </div>
+        {% endfor %}
     </div>
+    {% else %}
+    <div class="empty-state text-center p-5 rounded-4">
+        <i class="bi bi-box-seam display-5 text-primary"></i>
+        <h3 class="h4 mt-3">Пока товаров нет</h3>
+        <p class="text-muted mb-4">Добавьте первый товар, чтобы он появился в каталоге.</p>
+        <a class="btn btn-primary" href="{% url 'catalog:product_create' %}">
+            <i class="bi bi-plus-circle me-2"></i>Добавить товар
+        </a>
+    </div>
+    {% endif %}
 </section>
 
 <section class="container pb-5">

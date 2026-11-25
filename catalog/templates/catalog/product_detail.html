@@ -1,0 +1,55 @@
+{% extends "catalog/base.html" %}
+
+{% block title %}{{ product.name }} — Каталог{% endblock %}
+{% block description %}{{ product.description|truncatechars:150 }}{% endblock %}
+
+{% block content %}
+<section class="page-header py-4">
+    <div class="container">
+        <nav aria-label="Хлебные крошки">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'catalog:home' %}">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row g-5 align-items-start">
+        <div class="col-lg-6">
+            <div class="product-detail-media shadow-sm">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" class="product-detail-image" alt="{{ product.name }}">
+                {% else %}
+                <div class="product-placeholder product-placeholder-lg">
+                    <i class="bi bi-image"></i>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <span class="badge rounded-pill text-bg-light mb-3">{{ product.category.name }}</span>
+            <h1 class="display-6 fw-bold mb-3">{{ product.name }}</h1>
+            <p class="product-detail-price mb-4">{{ product.price|floatformat:2 }}&nbsp;₽</p>
+            <p class="lead text-muted mb-4">{{ product.description|linebreaksbr }}</p>
+
+            <dl class="row text-muted small mb-4">
+                <dt class="col-sm-4">Категория</dt>
+                <dd class="col-sm-8">{{ product.category.name }}</dd>
+                <dt class="col-sm-4">Добавлен</dt>
+                <dd class="col-sm-8">{{ product.created_at|date:"d.m.Y H:i" }}</dd>
+            </dl>
+
+            <div class="d-flex flex-column flex-sm-row gap-3">
+                <a class="btn btn-primary btn-lg px-4" href="{% url 'catalog:home' %}">
+                    <i class="bi bi-arrow-left me-2"></i>Назад в каталог
+                </a>
+                <a class="btn btn-outline-secondary btn-lg px-4" href="{% url 'catalog:product_create' %}">
+                    <i class="bi bi-plus-circle me-2"></i>Добавить ещё товар
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

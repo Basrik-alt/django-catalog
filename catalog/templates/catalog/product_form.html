@@ -1,0 +1,96 @@
+{% extends "catalog/base.html" %}
+
+{% block title %}Добавление товара — Каталог{% endblock %}
+{% block description %}Форма добавления нового товара в каталог{% endblock %}
+
+{% block content %}
+<section class="page-header py-5">
+    <div class="container py-3 text-center">
+        <h1 class="display-5 fw-bold mb-3">Новый товар</h1>
+        <p class="lead text-muted mb-0">
+            Заполните форму — товар сразу появится в каталоге.
+        </p>
+    </div>
+</section>
+
+<section class="container pb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-lg-5">
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+
+                        {% if form.non_field_errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ form.non_field_errors }}
+                        </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <label class="form-label" for="{{ form.name.id_for_label }}">
+                                Название <span class="text-danger">*</span>
+                            </label>
+                            {{ form.name }}
+                            {% for error in form.name.errors %}
+                            <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="{{ form.description.id_for_label }}">
+                                Описание <span class="text-danger">*</span>
+                            </label>
+                            {{ form.description }}
+                            {% for error in form.description.errors %}
+                            <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="{{ form.category.id_for_label }}">
+                                    Категория <span class="text-danger">*</span>
+                                </label>
+                                {{ form.category }}
+                                {% for error in form.category.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="{{ form.price.id_for_label }}">
+                                    Цена, ₽ <span class="text-danger">*</span>
+                                </label>
+                                {{ form.price }}
+                                {% for error in form.price.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="mb-4 mt-3">
+                            <label class="form-label" for="{{ form.image.id_for_label }}">
+                                Изображение
+                            </label>
+                            {{ form.image }}
+                            <div class="form-text">Необязательно. Поддерживаются файлы изображений.</div>
+                            {% for error in form.image.errors %}
+                            <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <button type="submit" class="btn btn-primary btn-lg px-4">
+                                <i class="bi bi-check2-circle me-2"></i>Сохранить товар
+                            </button>
+                            <a class="btn btn-outline-secondary btn-lg px-4" href="{% url 'catalog:home' %}">
+                                Отмена
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

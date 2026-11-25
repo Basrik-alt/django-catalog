@@ -1,0 +1,26 @@
+<article class="card product-card h-100 border-0 shadow-sm overflow-hidden">
+    <div class="product-card-media">
+        {% if product.image %}
+        <img src="{{ product.image.url }}" class="product-card-image" alt="{{ product.name }}">
+        {% else %}
+        <div class="product-placeholder">
+            <i class="bi bi-image"></i>
+        </div>
+        {% endif %}
+    </div>
+    <div class="card-body p-4 d-flex flex-column">
+        <span class="badge rounded-pill text-bg-light align-self-start mb-2">
+            {{ product.category.name }}
+        </span>
+        <h3 class="h5 card-title">{{ product.name }}</h3>
+        <p class="card-text text-muted flex-grow-1">
+            {{ product.description|truncatechars:100 }}
+        </p>
+        <div class="d-flex align-items-center justify-content-between gap-3 mt-3">
+            <span class="product-price">{{ product.price|floatformat:2 }}&nbsp;₽</span>
+            <a class="btn btn-primary" href="{% url 'catalog:product_detail' product.pk %}">
+                Подробнее
+            </a>
+        </div>
+    </div>
+</article>
